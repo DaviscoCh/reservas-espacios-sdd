@@ -168,7 +168,7 @@ verificar el acceso permitido o rechazado.
 - **FR-018**: El sistema MUST excluir los espacios desactivados de las opciones para nuevas
   reservas.
 - **FR-019**: El sistema MUST validar los datos obligatorios y mostrar errores comprensibles
-  antes de guardar usuarios, espacios o reservas.
+  en autenticación (login), espacios y reservas antes de procesar cada operación.
 - **FR-020**: El sistema MUST excluir pagos, reservas recurrentes y notificaciones del
   alcance de esta funcionalidad.
 

@@ -88,7 +88,9 @@ description: "Task list template for feature implementation"
 
 - [ ] T026 [P] [US2] Crear prueba de contrato para `POST /api/reservations` con casos `201/400/404/409` en `backend/tests/contract/reservations-create.contract.test.ts`
 - [ ] T027 [P] [US2] Crear prueba de contrato para `PATCH /api/reservations/:id/cancel` y `GET /api/reservations/me` en `backend/tests/contract/reservations-own.contract.test.ts`
+- [ ] T027A [P] [US2] Verificar en pruebas de contrato que rechazos de reserva devuelven `code` y `message` claros en `backend/tests/contract/reservations-errors.contract.test.ts`
 - [ ] T028 [P] [US2] Crear prueba unitaria de solapamiento con regla `existing.startAt < new.endAt` y `existing.endAt > new.startAt` en `backend/tests/unit/reservations-overlap.unit.test.ts`
+- [ ] T028A [P] [US2] Crear prueba unitaria de adyacencia válida (fin==inicio) para confirmar que no se considera solapamiento en `backend/tests/unit/reservations-adjacent.unit.test.ts`
 - [ ] T029 [P] [US2] Crear prueba de concurrencia con dos solicitudes simultáneas al mismo `spaceId` validando éxito único en `backend/tests/integration/reservations-concurrency.integration.test.ts`
 - [ ] T030 [P] [US2] Crear prueba de integración de cancelación que libera horario en `backend/tests/integration/reservations-cancel-release.integration.test.ts`
 - [ ] T031 [P] [US2] Crear pruebas de UI Angular para nueva reserva, conflicto y cancelación en `frontend/src/app/features/reservations/reservations-page.component.spec.ts`
@@ -117,6 +119,7 @@ description: "Task list template for feature implementation"
 - [ ] T038 [P] [US4] Crear prueba de contrato para `POST /api/auth/login` y `GET /api/auth/me` en `backend/tests/contract/auth.contract.test.ts`
 - [ ] T039 [P] [US4] Crear prueba de integración de autorización por rol en rutas de espacios/reservas en `backend/tests/integration/auth-roles.integration.test.ts`
 - [ ] T040 [P] [US4] Crear pruebas de UI Angular para login y guardas por rol en `frontend/src/app/features/auth/login-page.component.spec.ts` y `frontend/src/app/core/guards/role.guard.spec.ts`
+- [ ] T040A [P] [US4] Crear prueba de contrato para validación de payload inválido en login en `backend/tests/contract/auth-validation.contract.test.ts`
 
 ### Implementation for User Story 4
 
@@ -237,4 +240,3 @@ T050 en paralelo con T049 cuando T048 esté listo
 2. Añadir US4 para flujo completo de autenticación/roles en UI.
 3. Añadir US3 para administración operativa de espacios.
 4. Cerrar con pipeline CI y documentación final.
-
