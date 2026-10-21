@@ -1,50 +1,61 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report
+Version change: 0.0.0 -> 1.0.0
+Modified principles: n/a (initial constitution adoption)
+Added sections: Stack y Tecnología; Flujo de trabajo y calidad
+Removed sections: none
+Deferred items: TODO(RATIFICATION_DATE): Fecha original de adopción del proyecto
+-->
+
+# Sistema de Reservas de Espacios Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Especificación obligatoria antes del código
+Toda funcionalidad del sistema debe iniciarse con una especificación previa en el repositorio. La especificación debe describir el problema, el comportamiento esperado, los escenarios principales y los criterios de aceptación antes de cualquier implementación.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Esto garantiza que la solución se alinee con la necesidad del negocio, evita cambios improvisados y mantiene una trazabilidad clara entre requisitos, desarrollo y revisión.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Arquitectura definida y mantenible
+El proyecto se desarrolla con Angular en el frontend, Node.js con Express en el backend y MongoDB con Mongoose como base de datos. Los cambios deben respetar la separación de responsabilidades entre capas y mantener una estructura coherente con el stack definido.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+La elección tecnológica no es negociable; cualquier decisión de diseño debe reforzar la mantenibilidad, la escalabilidad y la claridad del sistema sin introducir dependencias innecesarias.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Calidad con pruebas automatizadas y enfoque TDD
+Toda regla de negocio crítica debe contar con pruebas automatizadas antes de considerarse completada. En particular, la regla de no solapamiento de reservas debe estar respaldada por pruebas que validen los casos de éxito, conflicto y bordes relevantes.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+El desarrollo sigue un ciclo de prueba fallida, implementación y verificación. No se acepta dejar funcionalidades críticas sin evidencia automatizada de cumplimiento.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Integridad del control de versiones y revisión
+La rama main se encuentra protegida y toda funcionalidad debe desarrollarse en ramas feature/*. La integración de cambios debe hacerse mediante Pull Request y requerirá revisión de código antes de fusionarse.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Cada cambio debe ser pequeño, claro y trazable; los commits deben describir el objetivo del ajuste con mensajes breves y comprensibles en español.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Documentación, comunicación y entregas comprensibles
+La documentación del proyecto y los mensajes de commit deben escribirse en español, con descripciones claras, específicas y pequeñas en alcance. El proyecto prioriza la comprensión del contexto por parte del equipo y la trazabilidad de cada entrega.
+
+La documentación no es opcional: debe mantenerse actualizada en la medida necesaria para que terceros puedan entender la intención del sistema, la lógica de negocio y el estado de cada funcionalidad.
+
+## Stack y Tecnología
+
+- Frontend: Angular
+- Backend: Node.js con Express
+- Base de datos: MongoDB con Mongoose
+- Criterio principal: cada módulo debe mantenerse alineado con la arquitectura establecida y con los principios de separación de responsabilidades.
+- Criterio de calidad: las validaciones de negocio deben estar reforzadas con pruebas automatizadas, especialmente cuando implican restricciones operativas como la no superposición de reservas.
+
+## Flujo de trabajo y calidad
+
+- Toda funcionalidad requiere especificación previa en el repositorio antes de su implementación.
+- Los cambios deben desarrollarse en ramas feature/* y fusionarse hacia main únicamente mediante Pull Request.
+- Cada Pull Request ejecuta un pipeline de GitHub Actions que incluye instalación de dependencias, pruebas y build.
+- El cumplimiento de reglas de negocio críticas debe validarse con pruebas automatizadas.
+- Los commits deben ser claros, pequeños y redactados en español.
+- La revisión de código es parte del proceso de calidad y no puede omitirse para integraciones a main.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Esta Constitución define las reglas obligatorias del proyecto y prevalece sobre prácticas informales o decisiones no documentadas. Cualquier cambio en procesos, estándares o principios debe registrarse aquí y mantenerse actualizado con el historial de versiones.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Las aprobaciones y revisiones deben verificarse en Pull Requests, asegurando que el trabajo cumple con la especificación, la calidad y los controles del proyecto. Cualquier omisión de estos requisitos constituye una excepción que debe documentarse y corregirse antes de la integración.
+
+**Version**: 1.0.0 | **Ratified**: 2026-10-20 | **Last Amended**: 2026-10-20
