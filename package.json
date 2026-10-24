@@ -1,0 +1,29 @@
+{
+  "name": "reservas-espacios-sdd",
+  "version": "1.0.0",
+  "description": "Sistema de reservas de espacios desarrollado con Spec Driven Development, GitHub Actions y Copilot",
+  "main": "index.js",
+  "scripts": {
+    "install:backend": "npm --prefix backend install",
+    "install:frontend": "npm --prefix frontend install",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "test:backend": "npm --prefix backend test",
+    "test:frontend": "npm --prefix frontend test -- --watch=false",
+    "test": "npm run test:backend && npm run test:frontend",
+    "build:backend": "npm --prefix backend run build",
+    "build:frontend": "npm --prefix frontend run build",
+    "build": "npm run build:backend && npm run build:frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaviscoCh/reservas-espacios-sdd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DaviscoCh/reservas-espacios-sdd/issues"
+  },
+  "homepage": "https://github.com/DaviscoCh/reservas-espacios-sdd#readme"
+}
