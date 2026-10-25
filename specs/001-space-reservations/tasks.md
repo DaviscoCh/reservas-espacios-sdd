@@ -23,14 +23,14 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Inicializar estructura y tooling base del monorepo.
 
-- [ ] T001 Crear estructura inicial de monorepo en `backend/`, `frontend/` y `.github/workflows/` según `specs/001-space-reservations/plan.md`
-- [ ] T002 Inicializar proyecto backend TypeScript con Express y scripts base en `backend/package.json` y `backend/tsconfig.json`
-- [ ] T003 [P] Inicializar proyecto frontend Angular con scripts base en `frontend/package.json` y `frontend/angular.json`
-- [ ] T004 [P] Definir archivos de entorno y configuración operativa (`APP_TIMEZONE`, `OPERATING_DAY_START`, `OPERATING_DAY_END`, `JWT_SECRET`) en `backend/.env.example` y `frontend/src/environments/environment.ts`
-- [ ] T005 [P] Configurar comandos raíz del monorepo para instalar, probar y compilar backend/frontend en `package.json`
-- [ ] T006 Configurar Jest en backend con TypeScript y Supertest en `backend/jest.config.ts` y `backend/tests/setup/jest.setup.ts`
-- [ ] T007 [P] Configurar pruebas de frontend con ejecutor Angular por defecto en `frontend/angular.json`
-- [ ] T008 [P] Configurar ESLint/format en backend y frontend en `backend/.eslintrc.*` y `frontend/.eslintrc.*`
+- [X] T001 Crear estructura inicial de monorepo en `backend/`, `frontend/` y `.github/workflows/` según `specs/001-space-reservations/plan.md`
+- [X] T002 Inicializar proyecto backend TypeScript con Express y scripts base en `backend/package.json` y `backend/tsconfig.json`
+- [X] T003 [P] Inicializar proyecto frontend Angular con scripts base en `frontend/package.json` y `frontend/angular.json`
+- [X] T004 [P] Definir archivos de entorno y configuración operativa (`APP_TIMEZONE`, `OPERATING_DAY_START`, `OPERATING_DAY_END`, `JWT_SECRET`) en `backend/.env.example` y `frontend/src/environments/environment.ts`
+- [X] T005 [P] Configurar comandos raíz del monorepo para instalar, probar y compilar backend/frontend en `package.json`
+- [X] T006 Configurar Jest en backend con TypeScript y Supertest en `backend/jest.config.ts` y `backend/tests/setup/jest.setup.ts`
+- [X] T007 [P] Configurar pruebas de frontend con ejecutor Angular por defecto en `frontend/angular.json`
+- [X] T008 [P] Configurar ESLint/format en backend y frontend en `backend/.eslintrc.*` y `frontend/.eslintrc.*`
 
 ---
 
