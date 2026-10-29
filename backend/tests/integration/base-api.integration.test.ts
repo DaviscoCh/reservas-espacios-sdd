@@ -20,11 +20,12 @@ describe('API base (/api)', () => {
     expect(response.body.code).toBe('VALIDATION_ERROR');
   });
 
-  it('los módulos auth, spaces y reservations están registrados bajo /api', async () => {
-    // Aún sin endpoints (se implementan por historia): el enrutador existe y responde 404 propio, no un error 500.
-    for (const path of ['/api/auth/login', '/api/spaces', '/api/reservations']) {
+  it('los módulos auth, spaces y reservations están registrados bajo /api y protegidos', async () => {
+    // Cada módulo responde 401 propio (falta el token), no 404 ni un error 500.
+    for (const path of ['/api/auth/me', '/api/spaces/availability?date=2026-11-10', '/api/reservations/me']) {
       const response = await request(app).get(path);
-      expect(response.status).toBe(404);
+      expect(response.status).toBe(401);
+      expect(response.body.code).toBe('UNAUTHORIZED');
     }
   });
 });

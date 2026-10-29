@@ -59,3 +59,8 @@ Requiere rol `administrador`. Permite editar nombre, tipo, capacidad, ubicación
 Responde `200`, `400` para datos inválidos y `404` si no existe.
 
 La desactivación se representa con `"isActive": false`; no elimina reservas históricas.
+
+Los cambios se validan completos antes de guardar: si un dato es inválido no se aplica ninguno.
+En la primera versión un espacio desactivado no puede reactivarse (`"isActive": true` responde
+`409`), aunque sus datos sí pueden seguir editándose. Las respuestas de espacios tienen la forma
+`{ "id", "name", "type", "capacity", "location", "isActive" }`.
