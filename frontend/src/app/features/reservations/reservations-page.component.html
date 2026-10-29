@@ -1,0 +1,93 @@
+<div class="reservations">
+  <section aria-labelledby="new-title">
+    <h1 id="new-title">Nueva reserva</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="field">
+        <label for="date">Fecha</label>
+        <input id="date" type="date" formControlName="date" />
+      </div>
+
+      <div class="field">
+        <label for="space">Espacio</label>
+        <select id="space" formControlName="spaceId">
+          <option value="">Selecciona un espacio</option>
+          @for (space of spaces(); track space.id) {
+            <option [value]="space.id">{{ space.name }} (capacidad {{ space.capacity }})</option>
+          }
+        </select>
+        @if (form.controls.spaceId.touched && form.controls.spaceId.invalid) {
+          <p class="field-error" role="alert">Selecciona un espacio.</p>
+        }
+      </div>
+
+      @if (selectedSpace(); as space) {
+        <div class="occupied" aria-live="polite">
+          @if (space.occupiedSlots.length === 0) {
+            <p>{{ space.name }} está libre todo el día.</p>
+          } @else {
+            <p>Horarios ocupados de {{ space.name }}:</p>
+            <ul>
+              @for (slot of space.occupiedSlots; track slot.startAt) {
+                <li>{{ timeRange(slot) }}</li>
+              }
+            </ul>
+          }
+        </div>
+      }
+
+      <div class="times">
+        <div class="field">
+          <label for="start">Hora de inicio</label>
+          <input id="start" type="time" formControlName="startTime" [min]="operatingStart" [max]="operatingEnd" />
+        </div>
+        <div class="field">
+          <label for="end">Hora de fin</label>
+          <input id="end" type="time" formControlName="endTime" [min]="operatingStart" [max]="operatingEnd" />
+        </div>
+      </div>
+      @if ((form.controls.startTime.touched && form.controls.startTime.invalid) || (form.controls.endTime.touched && form.controls.endTime.invalid)) {
+        <p class="field-error" role="alert">Indica la hora de inicio y la de fin.</p>
+      }
+      <p class="hint">Horario de atención: {{ operatingStart }}–{{ operatingEnd }} (hora de Guayaquil).</p>
+
+      @if (formError(); as message) {
+        <p class="form-error" role="alert">{{ message }}</p>
+      }
+      @if (successMessage(); as message) {
+        <p class="success" role="status">{{ message }}</p>
+      }
+
+      <button type="submit" [disabled]="submitting()">{{ submitting() ? 'Reservando…' : 'Reservar' }}</button>
+    </form>
+  </section>
+
+  <section aria-labelledby="mine-title">
+    <h2 id="mine-title">Mis reservas</h2>
+    @if (cancelMessage(); as message) {
+      <p class="success" role="status">{{ message }}</p>
+    }
+    @if (listError(); as message) {
+      <p class="form-error" role="alert">{{ message }}</p>
+    }
+    @if (reservations().length === 0 && !listError()) {
+      <p>Aún no tienes reservas.</p>
+    } @else {
+      <ul class="list">
+        @for (reservation of reservations(); track reservation.id) {
+          <li class="item" [class.cancelled]="reservation.status === 'cancelada'">
+            <div>
+              <strong>{{ reservation.spaceName }}</strong>
+              <span>{{ reservation.date }} · {{ timeRange(reservation) }}</span>
+              <span class="status">{{ reservation.status === 'activa' ? 'Activa' : 'Cancelada' }}</span>
+            </div>
+            @if (reservation.status === 'activa') {
+              <button type="button" class="secondary" [disabled]="cancellingId() === reservation.id" (click)="cancel(reservation)">
+                {{ cancellingId() === reservation.id ? 'Cancelando…' : 'Cancelar reserva' }}
+              </button>
+            }
+          </li>
+        }
+      </ul>
+    }
+  </section>
+</div>

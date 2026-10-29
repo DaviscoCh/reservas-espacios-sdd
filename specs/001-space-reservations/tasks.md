@@ -93,15 +93,15 @@ description: "Task list template for feature implementation"
 - [X] T028A [P] [US2] Crear prueba unitaria de adyacencia válida (fin==inicio) para confirmar que no se considera solapamiento en `backend/tests/unit/reservations-adjacent.unit.test.ts`
 - [X] T029 [P] [US2] Crear prueba de concurrencia con dos solicitudes simultáneas al mismo `spaceId` validando éxito único en `backend/tests/integration/reservations-concurrency.integration.test.ts`
 - [X] T030 [P] [US2] Crear prueba de integración de cancelación que libera horario en `backend/tests/integration/reservations-cancel-release.integration.test.ts`
-- [ ] T031 [P] [US2] Crear pruebas de UI Angular para nueva reserva, conflicto y cancelación en `frontend/src/app/features/reservations/reservations-page.component.spec.ts`
+- [X] T031 [P] [US2] Crear pruebas de UI Angular para nueva reserva, conflicto y cancelación en `frontend/src/app/features/reservations/reservations-page.component.spec.ts`
 
 ### Implementation for User Story 2
 
 - [X] T032 [US2] Implementar servicio de reservas con bloqueo en memoria por `spaceId` y validación de solapamiento dentro del bloqueo en `backend/src/services/reservations/reservations.service.ts`
 - [X] T033 [US2] Implementar validaciones de reserva (fin posterior al inicio, no pasado, misma fecha operativa, jornada 07:00-22:00, espacio activo) en `backend/src/services/reservations/reservations-validation.service.ts`
 - [X] T034 [US2] Implementar endpoints `POST /api/reservations`, `GET /api/reservations/me` y `PATCH /api/reservations/:id/cancel` en `backend/src/controllers/reservations.controller.ts` y `backend/src/routes/reservations.routes.ts`
-- [ ] T035 [P] [US2] Implementar cliente Angular de reservas en `frontend/src/app/features/reservations/reservations-api.service.ts`
-- [ ] T036 [US2] Implementar vistas de nueva reserva y mis reservas con cancelación en `frontend/src/app/features/reservations/reservations-page.component.ts` y `frontend/src/app/features/reservations/reservations-page.component.html`
+- [X] T035 [P] [US2] Implementar cliente Angular de reservas en `frontend/src/app/features/reservations/reservations-api.service.ts`
+- [X] T036 [US2] Implementar vistas de nueva reserva y mis reservas con cancelación en `frontend/src/app/features/reservations/reservations-page.component.ts` y `frontend/src/app/features/reservations/reservations-page.component.html`
 - [X] T037 [US2] Documentar limitación de concurrencia (aplica a una sola instancia) en `specs/001-space-reservations/contracts/reservations-api.md`
 
 **Checkpoint**: US2 funcional con énfasis TDD en no solapamiento.

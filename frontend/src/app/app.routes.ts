@@ -15,6 +15,14 @@ export const routes: Routes = [
         (m) => m.AvailabilityPageComponent,
       ),
   },
+  {
+    path: 'reservas',
+    canActivate: [roleGuard('solicitante')],
+    loadComponent: () =>
+      import('./features/reservations/reservations-page.component').then(
+        (m) => m.ReservationsPageComponent,
+      ),
+  },
   { path: '', pathMatch: 'full', redirectTo: 'disponibilidad' },
   { path: '**', redirectTo: 'disponibilidad' },
 ];

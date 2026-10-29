@@ -18,3 +18,7 @@
   cursor: pointer;
 }
 .session button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+nav { display: flex; gap: 1rem; margin-right: auto; margin-left: 1.5rem; }
+nav a { color: #cbd5e1; text-decoration: none; padding: 0.25rem 0; }
+nav a.active { color: #fff; border-bottom: 2px solid #fff; }
+nav a:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }

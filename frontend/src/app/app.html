@@ -1,6 +1,14 @@
 <header class="app-header">
   <strong>Reservas de espacios</strong>
   @if (session.user(); as user) {
+    <nav aria-label="Principal">
+      <a routerLink="/disponibilidad" routerLinkActive="active">Disponibilidad</a>
+      @if (user.role === 'solicitante') {
+        <a routerLink="/reservas" routerLinkActive="active">Mis reservas</a>
+      }
+    </nav>
+  }
+  @if (session.user(); as user) {
     <div class="session">
       <span>{{ user.email }} · {{ roleLabels[user.role] }}</span>
       <button type="button" (click)="logout()">Cerrar sesión</button>
