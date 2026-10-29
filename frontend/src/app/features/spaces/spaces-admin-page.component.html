@@ -1,0 +1,89 @@
+<div class="admin">
+  <section aria-labelledby="form-title">
+    <h1 id="form-title">{{ editingId() ? 'Editar espacio' : 'Nuevo espacio' }}</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input id="name" type="text" formControlName="name" />
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+          <p class="field-error" role="alert">Ingresa el nombre.</p>
+        }
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="type">Tipo</label>
+          <select id="type" formControlName="type">
+            <option value="sala">Sala</option>
+            <option value="cancha">Cancha</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="capacity">Capacidad</label>
+          <input id="capacity" type="number" min="1" step="1" formControlName="capacity" />
+          @if (form.controls.capacity.touched && form.controls.capacity.invalid) {
+            <p class="field-error" role="alert">La capacidad debe ser mayor que cero.</p>
+          }
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="location">Ubicación</label>
+        <input id="location" type="text" formControlName="location" />
+        @if (form.controls.location.touched && form.controls.location.invalid) {
+          <p class="field-error" role="alert">Ingresa la ubicación.</p>
+        }
+      </div>
+
+      @if (formError(); as error) {
+        <p class="form-error" role="alert">{{ error }}</p>
+      }
+
+      <div class="actions">
+        <button type="submit" [disabled]="saving()">
+          {{ saving() ? 'Guardando…' : editingId() ? 'Guardar cambios' : 'Crear espacio' }}
+        </button>
+        @if (editingId()) {
+          <button type="button" class="secondary" (click)="cancelEdit()">Cancelar edición</button>
+        }
+      </div>
+    </form>
+  </section>
+
+  <section aria-labelledby="list-title">
+    <h2 id="list-title">Espacios</h2>
+    @if (message(); as text) {
+      <p class="success" role="status">{{ text }}</p>
+    }
+    @if (listError(); as error) {
+      <p class="form-error" role="alert">{{ error }}</p>
+    }
+    @if (spaces().length === 0 && !listError()) {
+      <p>Aún no hay espacios registrados.</p>
+    } @else {
+      <ul class="list">
+        @for (space of spaces(); track space.id) {
+          <li class="item" [class.inactive]="!space.isActive">
+            <div class="info">
+              <strong>{{ space.name }}</strong>
+              <span>{{ typeLabels[space.type] }} · Capacidad {{ space.capacity }} · {{ space.location }}</span>
+              <span class="status">{{ space.isActive ? 'Activo' : 'Desactivado' }}</span>
+            </div>
+            <div class="actions">
+              <button type="button" class="secondary" (click)="edit(space)">Editar</button>
+              @if (space.isActive) {
+                @if (confirmingId() === space.id) {
+                  <span class="confirm">¿Desactivar {{ space.name }}?</span>
+                  <button type="button" class="danger" (click)="deactivate(space)">Confirmar</button>
+                  <button type="button" class="secondary" (click)="abortDeactivate()">No</button>
+                } @else {
+                  <button type="button" class="danger-outline" (click)="askDeactivate(space)">Desactivar</button>
+                }
+              }
+            </div>
+          </li>
+        }
+      </ul>
+    }
+  </section>
+</div>

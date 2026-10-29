@@ -23,6 +23,14 @@ export const routes: Routes = [
         (m) => m.ReservationsPageComponent,
       ),
   },
+  {
+    path: 'admin/espacios',
+    canActivate: [roleGuard('administrador')],
+    loadComponent: () =>
+      import('./features/spaces/spaces-admin-page.component').then(
+        (m) => m.SpacesAdminPageComponent,
+      ),
+  },
   { path: '', pathMatch: 'full', redirectTo: 'disponibilidad' },
   { path: '**', redirectTo: 'disponibilidad' },
 ];

@@ -6,6 +6,9 @@
       @if (user.role === 'solicitante') {
         <a routerLink="/reservas" routerLinkActive="active">Mis reservas</a>
       }
+      @if (user.role === 'administrador') {
+        <a routerLink="/admin/espacios" routerLinkActive="active">Espacios</a>
+      }
     </nav>
   }
   @if (session.user(); as user) {

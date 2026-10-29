@@ -63,6 +63,13 @@ describe('LoginPageComponent', () => {
     expect(router.navigateByUrl).toHaveBeenCalledWith('/disponibilidad');
   });
 
+  it('lleva al administrador a la administración de espacios', async () => {
+    login.mockReturnValue(of({ id: '2', email: 'admin@organizacion.test', role: 'administrador' }));
+    await fill('admin@organizacion.test', 'Admin12345');
+    await submit();
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/admin/espacios');
+  });
+
   it('muestra el mensaje del servidor cuando las credenciales son incorrectas', async () => {
     login.mockReturnValue(
       throwError(() => new HttpErrorResponse({ status: 401, error: { code: 'UNAUTHORIZED', message: 'Correo o contraseña incorrectos' } })),

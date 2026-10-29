@@ -52,4 +52,11 @@ describe('roleGuard', () => {
     expect(result instanceof UrlTree).toBe(true);
     expect(router.serializeUrl(result as UrlTree)).toBe('/disponibilidad');
   });
+
+  it('lleva al administrador a la administración de espacios si intenta entrar a una pantalla de solicitante', () => {
+    loginAs('administrador');
+    const result = run('solicitante');
+    expect(result instanceof UrlTree).toBe(true);
+    expect(router.serializeUrl(result as UrlTree)).toBe('/admin/espacios');
+  });
 });

@@ -142,14 +142,14 @@ description: "Task list template for feature implementation"
 
 - [X] T045 [P] [US3] Crear prueba de contrato para `POST /api/spaces` y `PATCH /api/spaces/:id` en `backend/tests/contract/spaces-admin.contract.test.ts`
 - [X] T046 [P] [US3] Crear prueba de integración de restricciones por rol y desactivación efectiva en `backend/tests/integration/spaces-admin.integration.test.ts`
-- [ ] T047 [P] [US3] Crear pruebas de UI Angular para alta/edición/desactivación de espacios en `frontend/src/app/features/spaces/spaces-admin-page.component.spec.ts`
+- [X] T047 [P] [US3] Crear pruebas de UI Angular para alta/edición/desactivación de espacios en `frontend/src/app/features/spaces/spaces-admin-page.component.spec.ts`
 
 ### Implementation for User Story 3
 
 - [X] T048 [US3] Implementar servicio de gestión de espacios con reglas de validación y desactivación lógica en `backend/src/services/spaces/spaces-admin.service.ts`
 - [X] T049 [US3] Implementar endpoints `GET /api/spaces`, `POST /api/spaces` y `PATCH /api/spaces/:id` en `backend/src/controllers/spaces-admin.controller.ts` y `backend/src/routes/spaces.routes.ts`
-- [ ] T050 [P] [US3] Implementar cliente Angular de administración de espacios en `frontend/src/app/features/spaces/spaces-admin-api.service.ts`
-- [ ] T051 [US3] Implementar pantalla de administración de espacios en `frontend/src/app/features/spaces/spaces-admin-page.component.ts` y `frontend/src/app/features/spaces/spaces-admin-page.component.html`
+- [X] T050 [P] [US3] Implementar cliente Angular de administración de espacios en `frontend/src/app/features/spaces/spaces-admin-api.service.ts`
+- [X] T051 [US3] Implementar pantalla de administración de espacios en `frontend/src/app/features/spaces/spaces-admin-page.component.ts` y `frontend/src/app/features/spaces/spaces-admin-page.component.html`
 
 **Checkpoint**: US3 funcional e independiente.
 
@@ -161,7 +161,7 @@ description: "Task list template for feature implementation"
 
 - [X] T052 Crear workflow de Pull Request que instala dependencias, ejecuta pruebas y build de backend/frontend en `.github/workflows/pull-request.yml`
 - [X] T053 [P] Ajustar scripts de CI para backend (`test`, `build`) en `backend/package.json` y frontend (`test --watch=false`, `build`) en `frontend/package.json`
-- [ ] T054 [P] Documentar ejecución local y en CI en `README.md` y `specs/001-space-reservations/quickstart.md`
+- [X] T054 [P] Documentar ejecución local y en CI en `README.md` y `specs/001-space-reservations/quickstart.md`
 - [ ] T055 Ejecutar validación end-to-end del quickstart y registrar resultado en `specs/001-space-reservations/quickstart.md`
 
 ---
