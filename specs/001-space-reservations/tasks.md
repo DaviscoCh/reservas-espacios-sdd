@@ -159,8 +159,8 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Cierre transversal con validación automática en Pull Request.
 
-- [ ] T052 Crear workflow de Pull Request que instala dependencias, ejecuta pruebas y build de backend/frontend en `.github/workflows/pull-request.yml`
-- [ ] T053 [P] Ajustar scripts de CI para backend (`test`, `build`) en `backend/package.json` y frontend (`test --watch=false`, `build`) en `frontend/package.json`
+- [X] T052 Crear workflow de Pull Request que instala dependencias, ejecuta pruebas y build de backend/frontend en `.github/workflows/pull-request.yml`
+- [X] T053 [P] Ajustar scripts de CI para backend (`test`, `build`) en `backend/package.json` y frontend (`test --watch=false`, `build`) en `frontend/package.json`
 - [ ] T054 [P] Documentar ejecución local y en CI en `README.md` y `specs/001-space-reservations/quickstart.md`
 - [ ] T055 Ejecutar validación end-to-end del quickstart y registrar resultado en `specs/001-space-reservations/quickstart.md`
 
