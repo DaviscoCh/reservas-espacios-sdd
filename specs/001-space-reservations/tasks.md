@@ -63,14 +63,14 @@ description: "Task list template for feature implementation"
 
 ### Tests for User Story 1 (TDD primero)
 
-- [ ] T019 [P] [US1] Crear prueba de contrato para `GET /api/spaces/availability` en `backend/tests/contract/spaces-availability.contract.test.ts`
-- [ ] T020 [P] [US1] Crear prueba de integración de disponibilidad por fecha y espacios activos en `backend/tests/integration/spaces-availability.integration.test.ts`
+- [X] T019 [P] [US1] Crear prueba de contrato para `GET /api/spaces/availability` en `backend/tests/contract/spaces-availability.contract.test.ts`
+- [X] T020 [P] [US1] Crear prueba de integración de disponibilidad por fecha y espacios activos en `backend/tests/integration/spaces-availability.integration.test.ts`
 - [ ] T021 [P] [US1] Crear prueba de componente Angular de filtro por fecha y listado de disponibilidad en `frontend/src/app/features/availability/availability-page.component.spec.ts`
 
 ### Implementation for User Story 1
 
-- [ ] T022 [US1] Implementar servicio de consulta de disponibilidad (filtra espacios activos y excluye reservas canceladas) en `backend/src/services/spaces/availability.service.ts`
-- [ ] T023 [US1] Implementar endpoint `GET /api/spaces/availability` en `backend/src/controllers/spaces.controller.ts` y `backend/src/routes/spaces.routes.ts`
+- [X] T022 [US1] Implementar servicio de consulta de disponibilidad (filtra espacios activos y excluye reservas canceladas) en `backend/src/services/spaces/availability.service.ts`
+- [X] T023 [US1] Implementar endpoint `GET /api/spaces/availability` en `backend/src/controllers/spaces.controller.ts` y `backend/src/routes/spaces.routes.ts`
 - [ ] T024 [P] [US1] Implementar cliente Angular de disponibilidad en `frontend/src/app/features/availability/availability-api.service.ts`
 - [ ] T025 [US1] Implementar pantalla de disponibilidad por fecha en `frontend/src/app/features/availability/availability-page.component.ts` y `frontend/src/app/features/availability/availability-page.component.html`
 
@@ -116,15 +116,15 @@ description: "Task list template for feature implementation"
 
 ### Tests for User Story 4 (TDD primero)
 
-- [ ] T038 [P] [US4] Crear prueba de contrato para `POST /api/auth/login` y `GET /api/auth/me` en `backend/tests/contract/auth.contract.test.ts`
-- [ ] T039 [P] [US4] Crear prueba de integración de autorización por rol en rutas de espacios/reservas en `backend/tests/integration/auth-roles.integration.test.ts`
+- [X] T038 [P] [US4] Crear prueba de contrato para `POST /api/auth/login` y `GET /api/auth/me` en `backend/tests/contract/auth.contract.test.ts`
+- [X] T039 [P] [US4] Crear prueba de integración de autorización por rol en rutas de espacios/reservas en `backend/tests/integration/auth-roles.integration.test.ts`
 - [ ] T040 [P] [US4] Crear pruebas de UI Angular para login y guardas por rol en `frontend/src/app/features/auth/login-page.component.spec.ts` y `frontend/src/app/core/guards/role.guard.spec.ts`
-- [ ] T040A [P] [US4] Crear prueba de contrato para validación de payload inválido en login en `backend/tests/contract/auth-validation.contract.test.ts`
+- [X] T040A [P] [US4] Crear prueba de contrato para validación de payload inválido en login en `backend/tests/contract/auth-validation.contract.test.ts`
 
 ### Implementation for User Story 4
 
-- [ ] T041 [US4] Implementar servicio de autenticación con normalización de email y comparación bcrypt en `backend/src/services/auth/auth.service.ts`
-- [ ] T042 [US4] Implementar emisión/validación JWT con `sub`, `role`, `exp` y endpoint `GET /api/auth/me` en `backend/src/controllers/auth.controller.ts` y `backend/src/routes/auth.routes.ts`
+- [X] T041 [US4] Implementar servicio de autenticación con normalización de email y comparación bcrypt en `backend/src/services/auth/auth.service.ts`
+- [X] T042 [US4] Implementar emisión/validación JWT con `sub`, `role`, `exp` y endpoint `GET /api/auth/me` en `backend/src/controllers/auth.controller.ts` y `backend/src/routes/auth.routes.ts`
 - [ ] T043 [US4] Implementar flujo Angular de login y almacenamiento de token en memoria en `frontend/src/app/features/auth/login-page.component.ts` y `frontend/src/app/core/auth/auth-session.service.ts`
 - [ ] T044 [US4] Proteger rutas Angular por rol y acoplar encabezado `Authorization: Bearer` en `frontend/src/app/core/guards/role.guard.ts` y `frontend/src/app/core/http/auth.interceptor.ts`
 
