@@ -40,16 +40,16 @@ description: "Task list template for feature implementation"
 
 **⚠️ CRITICAL**: Ninguna historia inicia implementación antes de completar esta fase.
 
-- [ ] T009 Configurar conexión Mongoose y arranque desacoplado (`app` vs `server`) en `backend/src/app.ts`, `backend/src/server.ts` y `backend/src/config/database.ts`
-- [ ] T010 [P] Implementar middleware de autenticación JWT y autorización por rol en `backend/src/middleware/authenticate-jwt.ts` y `backend/src/middleware/authorize-role.ts`
-- [ ] T011 [P] Implementar manejo de errores con códigos `400/401/403/404/409` y forma de error común en `backend/src/middleware/error-handler.ts`
-- [ ] T012 [P] Implementar utilidades de fecha/hora operativa (`America/Guayaquil`, jornada 07:00-22:00 configurable) en `backend/src/utils/datetime.ts`
-- [ ] T013 Definir modelo `Usuario` en `backend/src/models/user.model.ts` citando reglas: "`email` obligatorio, válido, único y normalizado", "`passwordHash` obligatorio; nunca se expone en respuestas", "`role` = `solicitante` o `administrador`"
-- [ ] T014 [P] Definir modelo `Espacio` en `backend/src/models/space.model.ts` citando reglas: "`name` obligatorio y no vacío", "`type` = `sala` o `cancha`", "`capacity` obligatorio y mayor que cero", "`location` obligatorio y no vacío", "`isActive` por defecto `true`"
-- [ ] T015 [P] Definir modelo `Reserva` en `backend/src/models/reservation.model.ts` citando reglas: "`userId` obligatorio y referencia a solicitante", "`spaceId` obligatorio y referencia a espacio", "`localDate` obligatoria en `YYYY-MM-DD`", "`startAt` obligatoria", "`endAt` obligatoria y posterior a `startAt`", "`status` = `activa` o `cancelada` (por defecto `activa`)"
-- [ ] T016 Crear índices de reservas y consultas por usuario en `backend/src/models/reservation.model.ts` con `{ spaceId, localDate, status, startAt, endAt }` y `{ userId, status, startAt }`
-- [ ] T017 Implementar utilidades de bloqueo en memoria por `spaceId` en `backend/src/services/locks/space-lock.service.ts` documentando limitación de instancia única
-- [ ] T018 Registrar rutas base `/api` y módulos `auth`, `spaces`, `reservations` en `backend/src/routes/index.ts` y `backend/src/app.ts`
+- [X] T009 Configurar conexión Mongoose y arranque desacoplado (`app` vs `server`) en `backend/src/app.ts`, `backend/src/server.ts` y `backend/src/config/database.ts`
+- [X] T010 [P] Implementar middleware de autenticación JWT y autorización por rol en `backend/src/middleware/authenticate-jwt.ts` y `backend/src/middleware/authorize-role.ts`
+- [X] T011 [P] Implementar manejo de errores con códigos `400/401/403/404/409` y forma de error común en `backend/src/middleware/error-handler.ts`
+- [X] T012 [P] Implementar utilidades de fecha/hora operativa (`America/Guayaquil`, jornada 07:00-22:00 configurable) en `backend/src/utils/datetime.ts`
+- [X] T013 Definir modelo `Usuario` en `backend/src/models/user.model.ts` citando reglas: "`email` obligatorio, válido, único y normalizado", "`passwordHash` obligatorio; nunca se expone en respuestas", "`role` = `solicitante` o `administrador`"
+- [X] T014 [P] Definir modelo `Espacio` en `backend/src/models/space.model.ts` citando reglas: "`name` obligatorio y no vacío", "`type` = `sala` o `cancha`", "`capacity` obligatorio y mayor que cero", "`location` obligatorio y no vacío", "`isActive` por defecto `true`"
+- [X] T015 [P] Definir modelo `Reserva` en `backend/src/models/reservation.model.ts` citando reglas: "`userId` obligatorio y referencia a solicitante", "`spaceId` obligatorio y referencia a espacio", "`localDate` obligatoria en `YYYY-MM-DD`", "`startAt` obligatoria", "`endAt` obligatoria y posterior a `startAt`", "`status` = `activa` o `cancelada` (por defecto `activa`)"
+- [X] T016 Crear índices de reservas y consultas por usuario en `backend/src/models/reservation.model.ts` con `{ spaceId, localDate, status, startAt, endAt }` y `{ userId, status, startAt }`
+- [X] T017 Implementar utilidades de bloqueo en memoria por `spaceId` en `backend/src/services/locks/space-lock.service.ts` documentando limitación de instancia única
+- [X] T018 Registrar rutas base `/api` y módulos `auth`, `spaces`, `reservations` en `backend/src/routes/index.ts` y `backend/src/app.ts`
 
 **Checkpoint**: Base técnica lista; historias pueden ejecutarse en paralelo por equipo.
 
