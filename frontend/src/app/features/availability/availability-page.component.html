@@ -1,0 +1,50 @@
+<section class="availability" aria-labelledby="availability-title">
+  <h1 id="availability-title">Disponibilidad de espacios</h1>
+
+  <div class="filter">
+    <label for="date">Fecha</label>
+    <input
+      id="date"
+      type="date"
+      [value]="date()"
+      (change)="onDateChange($any($event.target).value)"
+    />
+  </div>
+  <p class="hint">Horario de atención: {{ operatingHours }} (hora de Guayaquil).</p>
+
+  @switch (state()) {
+    @case ('loading') {
+      <p role="status">Cargando disponibilidad…</p>
+    }
+    @case ('error') {
+      <p class="error" role="alert">{{ errorMessage() }}</p>
+      <button type="button" (click)="retry()">Reintentar</button>
+    }
+    @case ('ready') {
+      @if (spaces().length === 0) {
+        <p role="status">No hay espacios activos para mostrar.</p>
+      } @else {
+        <ul class="spaces">
+          @for (space of spaces(); track space.id) {
+            <li class="space">
+              <h2>{{ space.name }}</h2>
+              <p class="meta">
+                {{ typeLabels[space.type] }} · Capacidad {{ space.capacity }} · {{ space.location }}
+              </p>
+              @if (space.occupiedSlots.length === 0) {
+                <p class="free">Libre todo el día</p>
+              } @else {
+                <p class="busy-title">Horarios ocupados</p>
+                <ul class="slots">
+                  @for (slot of space.occupiedSlots; track slot.startAt) {
+                    <li>{{ slotLabel(slot) }}</li>
+                  }
+                </ul>
+              }
+            </li>
+          }
+        </ul>
+      }
+    }
+  }
+</section>

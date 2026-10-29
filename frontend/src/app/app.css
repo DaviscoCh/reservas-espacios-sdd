@@ -1,0 +1,24 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #0f172a;
+  color: #fff;
+}
+.session { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; }
+.session button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #fff;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+.session button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+nav { display: flex; gap: 1rem; margin-right: auto; margin-left: 1.5rem; }
+nav a { color: #cbd5e1; text-decoration: none; padding: 0.25rem 0; }
+nav a.active { color: #fff; border-bottom: 2px solid #fff; }
+nav a:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }

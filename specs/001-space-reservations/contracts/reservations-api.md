@@ -36,6 +36,26 @@ Requiere rol `solicitante`. Sólo permite cancelar una reserva perteneciente al 
 autenticado y que esté activa. Responde `200` con estado `cancelada`; responde `404` si no
 existe o no pertenece al usuario, y `409` si ya está cancelada.
 
+## Forma de la reserva en las respuestas
+
+`POST /api/reservations` (201), `PATCH /api/reservations/:id/cancel` (200) y cada elemento de
+`GET /api/reservations/me` devuelven:
+
+```json
+{
+  "id": "reservation-id",
+  "spaceId": "space-id",
+  "spaceName": "Sala Norte",
+  "date": "2026-11-10",
+  "startAt": "2026-11-10T08:00:00-05:00",
+  "endAt": "2026-11-10T10:00:00-05:00",
+  "status": "activa"
+}
+```
+
+Los rechazos devuelven `{ "code": "...", "message": "..." }` con un motivo claro en español,
+por ejemplo: «El espacio ya está reservado de 08:00 a 10:00; elige otro horario».
+
 ## Limitación conocida de concurrencia
 
 La serialización por `spaceId` en memoria protege contra solicitudes simultáneas sólo dentro

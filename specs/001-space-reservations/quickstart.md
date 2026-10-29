@@ -3,10 +3,10 @@
 ## Prerrequisitos
 
 - Node.js LTS y npm instalados.
-- MongoDB disponible para ejecución local, o la configuración de prueba con
-  `mongodb-memory-server`.
+- MongoDB en ejecución local (`mongodb://127.0.0.1:27017`). Las pruebas con base de datos usan
+  la variable `MONGODB_TEST_URI`.
 - Variables de entorno configuradas:
-  - `JWT_SECRET`
+  - `JWT_SECRET` (copia `backend/.env.example` a `backend/.env`)
   - `APP_TIMEZONE=America/Guayaquil`
   - `OPERATING_DAY_START=07:00`
   - `OPERATING_DAY_END=22:00`
@@ -16,29 +16,33 @@
 ## Instalación
 
 ```bash
-cd backend && npm install
-cd ../frontend && npm install
+npm run install:all
 ```
+
+Cuentas de demostración (solo desarrollo): `npm --prefix backend run seed` crea
+`solicitante@organizacion.test` / `Solicitante123` y `admin@organizacion.test` / `Admin12345`.
+Para ejecutar el sistema: `npm --prefix backend run dev` y, en otra terminal,
+`npm --prefix frontend start` (http://localhost:4200).
 
 ## Validación automatizada
 
 ```bash
-cd backend
-npm test
-npm run build
-
-cd ../frontend
-npm test -- --watch=false
+# PowerShell; en bash usa MONGODB_TEST_URI=... npm run test:backend
+$env:MONGODB_TEST_URI="mongodb://127.0.0.1:27017/reservas-espacios-test"; npm run test:backend
+npm run test:frontend
 npm run build
 ```
 
-La suite del backend debe levantar una base efímera y comprobar autenticación, autorización,
+En CI el mismo flujo corre con `.github/workflows/pull-request.yml`.
+
+La suite del backend usa bases de pruebas dedicadas (una por archivo) y comprueba autenticación, autorización,
 validación temporal, no solapamiento, cancelación y contratos HTTP. La suite del frontend
 debe cubrir login, consulta de disponibilidad, alta de reserva, mis reservas y gestión de
 espacios.
 
 ## Validación manual end-to-end
 
+0. Como `administrador`, crear al menos un espacio (pantalla Espacios).
 1. Iniciar sesión con un usuario `solicitante`.
 2. Consultar disponibilidad para una fecha futura.
 3. Crear una reserva entre 08:00 y 10:00 y confirmar que aparece en mis reservas.

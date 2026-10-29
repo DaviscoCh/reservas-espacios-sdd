@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:ci": "jest --ci",
     "build": "tsc -p tsconfig.build.json",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "start": "node dist/server.js",
+    "seed": "npm run build && node dist/scripts/seed-users.js",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],
